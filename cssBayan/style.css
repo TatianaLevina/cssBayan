@@ -15,19 +15,21 @@ body {
 }
 
 .accordion__item {
-    /* background-color: #7baad4; */
-    border: 1px solid black;
+    background-color: #7baad4;
 }
 
 .accordion__tab_title {
-    display: block;
+    background-color: #7baad4;
     color: #304c61;
     padding: 0.5rem;
-
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 0 0.8em rgba(0, 0, 0, 0.4);
 }
 
 .mem {
-    background-size: contain;
+    object-fit: contain;
+    /* background-size: cover; */
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
@@ -38,19 +40,51 @@ body {
 }
 
 .accordion__input:checked~.accordion__content {
-    display: block;
+    height: 30vh;
+    transition: ease-out .3s;
 }
 
 .accordion__input:checked~.accordion__tab_title .triangle-down {
+    transition: transform .3s;
     transform: rotate(180deg);
 }
 
-.accordion__content {
-    display: none;
+.accordion__input:checked~.accordion__tab_title {
+    background-color: #f3ac5e;
+    transition: background-color .3s linear;
 }
 
-.accordion__tab_title {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+.accordion__content {
+    height: 0;
+    overflow: hidden;
+    transition: all .3s;
+    box-shadow: 0 0.8em 0.8em rgba(0, 0, 0, 0.4);
+}
+
+@media (min-width: 600px){
+    .accordion__tab_title{
+        font-size: 1.4rem;
+        padding: 1rem;
+    }
+    .triangle-down{
+        transform: scale(1.5);
+    }
+    .accordion__input:checked~.accordion__tab_title .triangle-down {
+        transform: scale(1.5) rotate(180deg);
+        transition: transform .3s;
+    }
+}
+
+@media (min-width: 1920px){
+    .accordion__tab_title{
+        font-size: 1.8rem;
+        padding: 1.5rem;
+    }
+    .triangle-down{
+        transform: scale(2);
+    }
+    .accordion__input:checked~.accordion__tab_title .triangle-down {
+        transform: scale(2) rotate(180deg);
+        transition: transform .3s;
+    }
 }

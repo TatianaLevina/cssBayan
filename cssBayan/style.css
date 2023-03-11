@@ -94,26 +94,31 @@ body {
     }
 }
 
-@media (hover: hover){
-    .triangle-down{
+@media (hover: hover) {
+    .triangle-down {
         transform: scale(0);
     }
+
     .accordion__input:checked~.accordion__tab_title .triangle-down {
         transform: scale(0);
     }
-    .accordion:hover .triangle-down{
+
+    .accordion:hover .triangle-down {
         transform: scale(2);
     }
+
     .accordion:hover .accordion__input:checked~.accordion__tab_title .triangle-down {
         transform: scale(2) rotate(180deg);
         transition: transform .3s;
     }
-    .accordion:hover .accordion__tab_title{
+
+    .accordion:hover .accordion__tab_title {
         background-color: #f3ac5e;
         transition: background-color .3s linear;
     }
-    .accordion__item:hover .accordion__content{
+
+    .accordion__item:hover .accordion__content {
         height: 30vh;
-    transition: ease-out .3s;
+        transition: ease-out .3s;
     }
 }

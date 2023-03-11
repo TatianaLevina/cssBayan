@@ -1,5 +1,5 @@
 html {
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 body {
@@ -10,8 +10,8 @@ body {
 }
 
 .wrapper {
-    max-width: 50%;
-    margin: 10% auto;
+    max-width: 30%;
+    margin: 2% auto;
 }
 
 .accordion__item {
@@ -55,36 +55,65 @@ body {
 }
 
 .accordion__content {
+    display: block;
     height: 0;
     overflow: hidden;
     transition: all .3s;
     box-shadow: 0 0.8em 0.8em rgba(0, 0, 0, 0.4);
 }
 
-@media (min-width: 600px){
-    .accordion__tab_title{
+@media (min-width: 600px) {
+    .accordion__tab_title {
         font-size: 1.4rem;
         padding: 1rem;
     }
-    .triangle-down{
+
+    .triangle-down {
         transform: scale(1.5);
     }
+
     .accordion__input:checked~.accordion__tab_title .triangle-down {
         transform: scale(1.5) rotate(180deg);
         transition: transform .3s;
     }
 }
 
-@media (min-width: 1920px){
-    .accordion__tab_title{
+@media (min-width: 1920px) {
+    .accordion__tab_title {
         font-size: 1.8rem;
-        padding: 1.5rem;
+        padding: 1.2rem;
     }
-    .triangle-down{
+
+    .triangle-down {
         transform: scale(2);
     }
+
     .accordion__input:checked~.accordion__tab_title .triangle-down {
         transform: scale(2) rotate(180deg);
         transition: transform .3s;
+    }
+}
+
+@media (hover: hover){
+    .triangle-down{
+        transform: scale(0);
+    }
+    .accordion__input:checked~.accordion__tab_title .triangle-down {
+        transform: scale(0);
+    }
+    .accordion:hover .triangle-down{
+        transform: scale(2);
+    }
+    .accordion:hover .accordion__input:checked~.accordion__tab_title .triangle-down {
+        transform: scale(2) rotate(180deg);
+        transition: transform .3s;
+    }
+    .accordion:hover .accordion__tab_title{
+        background-color: #f3ac5e;
+        transition: background-color .3s linear;
+    }
+    .accordion__item:hover .accordion__content{
+        height: 30vh;
+    transition: ease-out .3s;
     }
 }
